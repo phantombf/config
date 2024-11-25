@@ -1,10 +1,3 @@
-const { type, name } = $arguments;
-const compatible_outbound = {
-  tag: 'COMPATIBLE',
-  type: 'block',
-};
-
-let compatible;
 let config = JSON.parse($files[0]);
 let proxies = await produceArtifact({
   name,
@@ -17,7 +10,7 @@ let proxies = await produceArtifact({
 
 config.outbounds.map(i => {
   if ("outbounds" in i && i.outbounds.includes("{all}") && "filter" in i) {
-    i.outbounds = i.outbounds.filter(item => item != "{all}" && item != "block");
+    i.outbounds = i.outbounds.filter(item => item != "{all}");
     const p = getTags(proxies, i.filter[0].keywords[0]);
     if (i.filter[0].action == "include") {
       i.outbounds.push(...p);
