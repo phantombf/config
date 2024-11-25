@@ -109,7 +109,7 @@
       "listen": "::",
       "listen_port": 2345,
       "method": "aes-128-gcm",
-      "password": "18651105262"
+      "password": "123456"
     },
     {
       "type": "tun",
