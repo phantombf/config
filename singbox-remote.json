@@ -60,7 +60,7 @@
         ],
           "action": "route",
           "server": "google"
-     },
+      },
       {
         "domain_suffix": [
           "edu.cn",
@@ -140,7 +140,7 @@
     { "tag": "Paypal", "type": "selector", "outbounds": ["香港", "美国", "日本", "台湾", "韩国", "新加坡", "机场", "自建", "➜ Direct"] },
     { "tag": "自建", "type": "selector", "outbounds": ["{all}"], "filter": [{ "action": "include", "keywords": ["BWG"] }] },
     { "tag": "香港", "type": "selector", "outbounds": ["{all}"], "filter": [{ "action": "include", "keywords": ["🇭🇰|HK|hk|香港|港|HongKong"] }] },
-    { "tag": "美国", "type": "selector", "outbounds": ["{all}"], "filter": [{ "action": "include", "keywords": ["🇺🇸|US|us|美国|美|United States"] },
+    { "tag": "美国", "type": "selector", "outbounds": ["{all}"], "filter": [{ "action": "include", "keywords": ["🇺🇸|US|us|美国|美|United States"] }] },
     { "tag": "日本", "type": "selector", "outbounds": ["{all}"], "filter": [{ "action": "include", "keywords": ["🇯🇵|JP|jp|日本|日|Japan"] }] },
     { "tag": "台湾", "type": "selector", "outbounds": ["{all}"], "filter": [{ "action": "include", "keywords": ["TW|tw|台湾|台|Taiwan"] }] },
     { "tag": "韩国", "type": "selector", "outbounds": ["{all}"], "filter": [{ "action": "include", "keywords": ["🇰🇷|KR|kr|韩国|韩|Korea"] }] },
