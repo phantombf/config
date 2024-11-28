@@ -80,8 +80,7 @@
       {
         "rule_set": [
           "geosite-cn",
-          "geosite-icloud@cn",
-          "geosite-apple@cn"
+          "geosite-apple"
         ],
           "action": "route",
           "server": "local-dns"
@@ -122,6 +121,7 @@
   ],
   "outbounds": [
     { "tag": "Proxy", "type": "selector", "outbounds": ["香港", "美国", "日本", "台湾", "韩国", "新加坡", "全部", "自建", "手动", "➜ Direct"] },
+    { "tag": "Apple", "type": "selector", "outbounds": ["香港", "美国", "日本", "台湾", "韩国", "新加坡", "全部", "自建", "手动", "➜ Direct"] },
     { "tag": "Netflix", "type": "selector", "outbounds": ["香港", "美国", "日本", "台湾", "韩国", "新加坡", "全部", "自建", "手动", "➜ Direct"] },
     { "tag": "Disney", "type": "selector", "outbounds": ["香港", "美国", "日本", "台湾", "韩国", "新加坡", "全部", "自建", "手动", "➜ Direct"] },
     { "tag": "Youtube", "type": "selector", "outbounds": ["香港", "美国", "日本", "台湾", "韩国", "新加坡", "全部", "自建", "手动", "➜ Direct"] },
@@ -310,8 +310,8 @@
         "type": "remote",
         "format": "binary",
         "download_detour": "Proxy",
-        "tag": "geosite-apple@cn",
-        "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/apple@cn.srs"
+        "tag": "geosite-apple",
+        "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/apple.srs"
       }
     ],
     "rules": [
@@ -374,7 +374,12 @@
         "action": "route",
         "outbound": "Proxy"
       },
-       {
+      {
+        "rule_set": "geosite-apple",
+        "action": "route", 
+        "outbound": "Apple"
+      },
+      {
         "rule_set": "geosite-netflix",
         "action": "route", 
         "outbound": "Netflix"
@@ -472,9 +477,7 @@
       {
         "rule_set": [
           "geoip-cn",
-          "geosite-cn",
-          "geosite-icloud@cn",
-          "geosite-apple@cn"
+          "geosite-cn"
         ],
         "action": "route",
         "outbound": "➜ Direct"
