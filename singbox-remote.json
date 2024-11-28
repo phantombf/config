@@ -303,13 +303,6 @@
         "type": "remote",
         "format": "binary",
         "download_detour": "Proxy",
-        "tag": "geosite-icloud@cn",
-        "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/icloud@cn.srs"
-      },
-      {
-        "type": "remote",
-        "format": "binary",
-        "download_detour": "Proxy",
         "tag": "geosite-apple",
         "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/apple.srs"
       }
