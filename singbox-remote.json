@@ -145,7 +145,8 @@
     { "tag": "台湾", "type": "selector", "outbounds": ["{all}"], "filter": [{ "action": "include", "keywords": ["TW|tw|台湾|台|Taiwan"] }] },
     { "tag": "韩国", "type": "selector", "outbounds": ["{all}"], "filter": [{ "action": "include", "keywords": ["🇰🇷|KR|kr|韩国|韩|Korea"] }] },
     { "tag": "新加坡", "type": "selector", "outbounds": ["{all}"], "filter": [{ "action": "include", "keywords": ["🇸🇬|SG|sg|新加坡|新|Singapore"] }] },
-    { "tag": "机场", "type": "selector", "outbounds": ["{all}"]},
+    { "tag": "全部", "type": "selector", "outbounds": ["{all}"]},
+    { "tag": "手动", "type": "selector", "outbounds": ["{all}"]},
     { "tag": "GLOBAL", "type": "selector", "outbounds": ["{all}"]},
     { "tag": "➜ Direct", "type": "direct" }
   ],
