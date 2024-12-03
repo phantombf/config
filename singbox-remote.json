@@ -52,7 +52,6 @@
           "geosite-github",
           "geosite-spotify",
           "geosite-google",
-          "geosite-playstation",
           "geosite-bing",
           "geosite-bahamut",
           "geosite-tiktok@!cn",
@@ -80,6 +79,7 @@
       {
         "rule_set": [
           "geosite-cn",
+          "geosite-playstation",
           "geosite-apple"
         ],
           "action": "route",
