@@ -545,6 +545,10 @@
             ]
         },
         {
+            "tag": "dns-out",
+            "type": "dns"
+        },
+        {
             "tag": "➜ Direct",
             "type": "direct"
         },
