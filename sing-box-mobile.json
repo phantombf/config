@@ -139,22 +139,6 @@
             ]
         },
         {
-            "tag": "Apple",
-            "type": "selector",
-            "outbounds": [
-                "香港",
-                "美国",
-                "日本",
-                "台湾",
-                "韩国",
-                "新加坡",
-                "全部",
-                "自建",
-                "手动",
-                "➜ Direct"
-            ]
-        },
-        {
             "tag": "Netflix",
             "type": "selector",
             "outbounds": [
