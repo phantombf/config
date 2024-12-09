@@ -545,6 +545,10 @@
             ]
         },
         {
+           "type": "block",
+           "tag": "block"
+        },
+        {
             "tag": "dns-out",
             "type": "dns"
         },
