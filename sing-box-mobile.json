@@ -105,13 +105,6 @@
             "auto_route": true,
             "sniff_override_destination": false,
             "gso": false
-        },
-        {
-            "type": "direct",
-            "tag": "dns-in",
-            "listen": "::",
-            "listen_port": 53,
-            "sniff": true
         }
     ],
     "outbounds": [
