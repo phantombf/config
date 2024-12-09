@@ -883,7 +883,7 @@
             },
             {
                 "rule_set": "geosite-tiktok@!cn",
-                "outbound": "Tiktok@!cn"
+                "outbound": "Tiktok"
             },
             {
                 "rule_set": "geosite-paypal",
