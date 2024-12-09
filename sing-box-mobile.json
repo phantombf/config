@@ -84,7 +84,6 @@
                 "query_type": [
                     "A"
                 ],
-                "rewrite_ttl": 1,
                 "server": "google"
             }
         ],
