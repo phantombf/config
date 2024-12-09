@@ -546,16 +546,16 @@
             ]
         },
         {
+            "tag": "➜ Direct",
+            "type": "direct"
+        },
+        {
             "type": "shadowsocks",
             "tag": "回家",
             "server": "ss.930303.xyz",
             "server_port": 2345,
             "method": "aes-128-gcm",
             "password": "123456"
-        },
-        {
-            "tag": "➜ Direct",
-            "type": "direct"
         }
     ],
     "route": {
