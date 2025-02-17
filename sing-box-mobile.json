@@ -27,7 +27,7 @@
             },
             {
                 "tag": "local-dns",
-                "address": "tls://223.5.5.5",
+                "address": "https://120.53.53.53/dns-query",
                 "detour": "➜ Direct"
             }
         ],
