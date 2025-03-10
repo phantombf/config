@@ -32,63 +32,69 @@
             }
         ],
         "rules": [
-            {
-                "outbound": "any",
-                "server": "local-dns"
-            },
-            {
-                "rule_set": [
-                    "geosite-netflix",
-                    "geosite-disney",
-                    "geosite-youtube",
-                    "geosite-abema",
-                    "geosite-telegram",
-                    "geosite-twitter",
-                    "geosite-openai",
-                    "geosite-speedtest",
-                    "geosite-github",
-                    "geosite-spotify",
-                    "geosite-google",
-                    "geosite-bing",
-                    "geosite-bahamut",
-                    "geosite-tiktok@!cn",
-                    "geosite-paypal"
-                ],
-                "server": "google"
-            },
-            {
-                "domain_suffix": [
-                    "edu.cn",
-                    "gov.cn",
-                    "mil.cn",
-                    "ac.cn",
-                    "com.cn",
-                    "net.cn",
-                    "org.cn",
-                    "中国",
-                    "中國",
-                    "930303.xyz"
-                ],
-                "server": "local-dns"
-            },
-            {
-                "rule_set": [
-                    "geosite-cn",
-                    "geosite-playstation",
-                    "geosite-icloud@cn",
-                    "geosite-apple@cn"
-                ],
-                "server": "local-dns"
-            },
-            {
-                "query_type": [
-                    "A"
-                ],
-                "server": "google"
-            }
+      {
+        "outbound": [
+          "any"
         ],
-        "strategy": "ipv4_only"
-    },
+          "action": "route",
+          "server": "local-dns"
+      },
+      {
+        "rule_set": [
+          "geosite-netflix",
+          "geosite-disney",
+          "geosite-youtube",
+          "geosite-abema",
+          "geosite-telegram",
+          "geosite-twitter",
+          "geosite-openai",
+          "geosite-speedtest",
+          "geosite-github",
+          "geosite-spotify",
+          "geosite-google",
+          "geosite-bing",
+          "geosite-bahamut",
+          "geosite-tiktok@!cn",
+          "geosite-paypal"
+        ],
+          "action": "route",
+          "server": "google"
+      },
+      {
+        "domain_suffix": [
+          "edu.cn",
+          "gov.cn",
+          "mil.cn",
+          "ac.cn",
+          "com.cn",
+          "net.cn",
+          "org.cn",
+          "中国",
+          "中國",
+          "930303.xyz"
+        ],
+          "action": "route",
+          "server": "local-dns"
+      },
+      {
+        "rule_set": [
+          "geosite-cn",
+          "geosite-playstation",
+          "geosite-apple"
+        ],
+          "action": "route",
+          "server": "local-dns"
+      },
+      {
+        "query_type": [
+          "A"
+        ],
+          "action": "route",
+          "server": "google"
+      }
+    ],
+    "strategy": "ipv4_only"
+  },
     "inbounds": [
         {
             "type": "mixed",
@@ -707,179 +713,190 @@
             }
         ],
         "rules": [
-            {
-                "protocol": "dns",
-                "outbound": "dns-out"
-            },
-            {
-                "port": 53,
-                "outbound": "dns-out"
-            },
-            {
-                "type": "logical",
-                "mode": "or",
-                "rules": [
-                    {
-                        "port": 853
-                    },
-                    {
-                        "network": "udp",
-                        "port": 443
-                    },
-                    {
-                        "protocol": "stun"
-                    }
-                ],
-                "outbound": "block"
-            },
-            {
-                "ip_cidr": [
-                    "192.168.100.0/24"
-                ],
-                "outbound": "Home"
-            },
-            {
-                "domain": [
-                    "dl.steam.clngaa.com",
-                    "dl.steam.ksyna.com",
+      {
+        "inbound": "mixed-in",
+        "action": "sniff"
+      },
+      {
+        "inbound": "tun-in",
+        "action": "sniff"
+      },
+      {
+        "protocol": "dns",
+        "action": "hijack-dns"
+      },
+      {
+        "ip_cidr": [
+            "192.168.100.0/24"
+        ],
+        "action": "route",
+        "outbound": "Home"
+     },
+    {
+        "domain": [
+            "dl.steam.clngaa.com",
+            "dl.steam.ksyna.com",
                     "steampipe.steamcontent.tnkjmec.com",
                     "steampowered.com.8686c.com",
                     "steamstatic.com.8686c.com",
-                    "wmsjsteam.com"
-                ],
-                "outbound": "➜ Direct"
-            },
-            {
-                "domain_suffix": [
-                    "wogg.xxooo.cf",
-                    "wogg.lol",
-                    "mogg.top",
-                    "kufei.org",
-                    "ptchina.org",
-                    "qingwapt.com",
-                    "qingwapt.org",
-                    "edu.cn",
-                    "gov.cn",
-                    "mil.cn",
-                    "ac.cn",
-                    "com.cn",
-                    "net.cn",
-                    "org.cn",
-                    "中国",
-                    "中國",
-                    "930303.xyz",
-                    "cm.steampowered.com",
-                    "steamchina.com",
-                    "steamcontent.com",
-                    "steamusercontent.com"
-                ],
-                "outbound": "➜ Direct"
-            },
-            {
-                "domain_suffix": [
-                    "cdn.hinet.net"
-                ],
-                "outbound": "台湾"
-            },
-            {
-                "ip_is_private": true,
-                "outbound": "➜ Direct"
-            },
-            {
-                "clash_mode": "Direct",
-                "outbound": "➜ Direct"
-            },
-            {
-                "clash_mode": "Global",
-                "outbound": "Proxy"
-            },
-            {
-                "rule_set": "geosite-netflix",
-                "outbound": "Netflix"
-            },
-            {
-                "rule_set": "geoip-netflix",
-                "outbound": "Netflix"
-            },
-            {
-                "rule_set": "geosite-disney",
-                "outbound": "Disney"
-            },
-            {
-                "rule_set": "geosite-youtube",
-                "outbound": "Youtube"
-            },
-            {
-                "rule_set": "geosite-abema",
-                "outbound": "Abema"
-            },
-            {
-                "rule_set": "geosite-telegram",
-                "outbound": "Telegram"
-            },
-            {
-                "rule_set": "geoip-telegram",
-                "outbound": "Telegram"
-            },
-            {
-                "rule_set": "geosite-twitter",
-                "outbound": "Twitter"
-            },
-            {
-                "rule_set": "geoip-twitter",
-                "outbound": "Twitter"
-            },
-            {
-                "rule_set": "geosite-openai",
-                "outbound": "Openai"
-            },
-            {
-                "rule_set": "geosite-speedtest",
-                "outbound": "Speedtest"
-            },
-            {
-                "rule_set": "geosite-github",
-                "outbound": "Github"
-            },
-            {
-                "rule_set": "geosite-spotify",
-                "outbound": "Spotify"
-            },
-            {
-                "rule_set": "geosite-google",
-                "outbound": "Google"
-            },
-            {
-                "rule_set": "geosite-playstation",
-                "outbound": "Playstation"
-            },
-            {
-                "rule_set": "geosite-bing",
-                "outbound": "Bing"
-            },
-            {
-                "rule_set": "geosite-bahamut",
-                "outbound": "Bahamut"
-            },
-            {
-                "rule_set": "geosite-tiktok@!cn",
-                "outbound": "Tiktok"
-            },
-            {
-                "rule_set": "geosite-paypal",
-                "outbound": "Paypal"
-            },
-            {
-                "rule_set": [
-                    "geoip-cn",
-                    "geosite-cn",
-                    "geosite-icloud@cn",
-                    "geosite-apple@cn"
-                ],
-                "outbound": "➜ Direct"
-            }
+            "wmsjsteam.com"
         ],
-        "auto_detect_interface": true,
-        "final": "Proxy"
-    }
+        "action": "route",
+        "outbound": "➜ Direct"
+    },
+    {
+        "domain_suffix": [
+          "edu.cn",
+          "gov.cn",
+          "mil.cn",
+          "ac.cn",
+          "com.cn",
+          "net.cn",
+          "org.cn",
+          "中国",
+          "中國",
+          "930303.xyz",
+          "wogg.xxooo.cf",
+          "cm.steampowered.com",
+          "steamchina.com",
+          "steamcontent.com",
+          "steamusercontent.com"
+        ],
+        "action": "route",
+        "outbound": "➜ Direct"
+      },
+      {  
+        "domain_suffix": [
+          "cdn.hinet.net"
+        ],
+        "action": "route",
+        "outbound": "台湾"
+      },  
+      {
+        "ip_is_private": true,
+        "action": "route",
+        "outbound": "➜ Direct"
+      },
+      {
+        "clash_mode": "Direct",
+        "action": "route",
+        "outbound": "➜ Direct"
+      },
+      {
+        "clash_mode": "Global",
+        "action": "route",
+        "outbound": "Proxy"
+      },
+      {
+        "rule_set": "geosite-apple",
+        "action": "route", 
+        "outbound": "Apple"
+      },
+      {
+        "rule_set": "geosite-netflix",
+        "action": "route", 
+        "outbound": "Netflix"
+      },
+      {
+        "rule_set": "geoip-netflix",
+        "action": "route",
+        "outbound": "Netflix"
+      },
+      {
+        "rule_set": "geosite-disney",
+        "action": "route",
+        "outbound": "Disney"
+      },
+      {
+        "rule_set": "geosite-youtube",
+        "action": "route",
+        "outbound": "Youtube"
+      },
+      {
+        "rule_set": "geosite-abema",
+        "action": "route",
+        "outbound": "Abema"
+      },
+      {
+        "rule_set": "geosite-telegram",
+        "action": "route",
+        "outbound": "Telegram"
+      },
+      {
+        "rule_set": "geoip-telegram",
+        "action": "route",
+        "outbound": "Telegram"
+      },
+      {
+        "rule_set": "geosite-twitter",
+        "action": "route",
+        "outbound": "Twitter"
+      },
+      {
+        "rule_set": "geoip-twitter",
+        "action": "route",
+        "outbound": "Twitter"
+      },
+      {
+        "rule_set": "geosite-openai",
+        "action": "route",
+        "outbound": "Openai"
+      },
+      {
+        "rule_set": "geosite-speedtest",
+        "action": "route",
+        "outbound": "Speedtest"
+      },
+      {
+        "rule_set": "geosite-github",
+        "action": "route",
+        "outbound": "Github"
+      },
+      {
+        "rule_set": "geosite-spotify",
+        "action": "route",
+        "outbound": "Spotify"
+      },
+      {
+        "rule_set": "geosite-google",
+        "action": "route",
+        "outbound": "Google"
+      },
+      {
+        "rule_set": "geosite-playstation",
+        "action": "route",
+        "outbound": "Playstation"
+      },
+      {
+        "rule_set": "geosite-bing",
+        "action": "route",
+        "outbound": "Bing"
+      },
+      {
+        "rule_set": "geosite-bahamut",
+        "action": "route",
+        "outbound": "Bahamut"
+      },
+      {
+        "rule_set": "geosite-tiktok@!cn",
+        "action": "route",
+        "outbound": "Tiktok"
+      },
+      {
+        "rule_set": "geosite-paypal",
+        "action": "route",
+        "outbound": "Paypal"
+      },
+      {
+        "rule_set": [
+          "geoip-cn",
+          "geosite-cn"
+        ],
+        "action": "route",
+        "outbound": "➜ Direct"
+      }
+    ],
+    "auto_detect_interface": true,
+    "final": "Proxy"
+  }
 }
