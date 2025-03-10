@@ -788,7 +788,12 @@
         "outbound": "Proxy"
       },
       {
-        "rule_set": "geosite-apple",
+        "rule_set": "geosite-apple@cn",
+        "action": "route", 
+        "outbound": "Apple"
+      },
+      {
+        "rule_set": "geosite-icloud@cn",
         "action": "route", 
         "outbound": "Apple"
       },
