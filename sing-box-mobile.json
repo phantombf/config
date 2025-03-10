@@ -80,7 +80,7 @@
         "rule_set": [
           "geosite-cn",
           "geosite-playstation",
-          "geosite-apple"
+          "geosite-apple@cn"
         ],
           "action": "route",
           "server": "local-dns"
