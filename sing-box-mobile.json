@@ -94,7 +94,7 @@
       }
     ],
     "strategy": "ipv4_only"
-  },
+    },
     "inbounds": [
         {
             "type": "mixed",
@@ -712,7 +712,7 @@
                 "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/apple@cn.srs"
             }
         ],
-        "rules": [
+      "rules": [
       {
         "inbound": "mixed-in",
         "action": "sniff"
@@ -732,13 +732,13 @@
         "action": "route",
         "outbound": "Home"
      },
-    {
+     {
         "domain": [
             "dl.steam.clngaa.com",
             "dl.steam.ksyna.com",
-                    "steampipe.steamcontent.tnkjmec.com",
-                    "steampowered.com.8686c.com",
-                    "steamstatic.com.8686c.com",
+            "steampipe.steamcontent.tnkjmec.com",
+            "steampowered.com.8686c.com",
+            "steamstatic.com.8686c.com",
             "wmsjsteam.com"
         ],
         "action": "route",
