@@ -80,7 +80,7 @@
         "rule_set": [
           "geosite-cn",
           "geosite-playstation",
-          "geosite-apple@cn"
+          "geosite-apple"
         ],
           "action": "route",
           "server": "local-dns"
@@ -708,8 +708,8 @@
                 "type": "remote",
                 "format": "binary",
                 "download_detour": "Proxy",
-                "tag": "geosite-apple@cn",
-                "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/apple@cn.srs"
+                "tag": "geosite-apple",
+                "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/apple.srs"
             }
         ],
       "rules": [
